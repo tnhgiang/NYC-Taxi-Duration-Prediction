@@ -56,9 +56,9 @@ module "mlflow_tracking_server_sg" {
     },
     {
       description = "Allow HTTP connection"
-      from_port = 5000
-      to_port = 5000
-      protocol = "tcp"
+      from_port   = 5000
+      to_port     = 5000
+      protocol    = "tcp"
       cidr_blocks = "0.0.0.0/0"
     }
   ]
@@ -118,13 +118,13 @@ module "mlflow_backend_store" {
 
   identifier = var.mlflow_backend_store_name
 
-  engine               = var.mlflow_backend_store_db.engine
-  engine_version       = var.mlflow_backend_store_db.engine_version
-  family               = var.mlflow_backend_store_db.family
-  major_engine_version = var.mlflow_backend_store_db.major_engine_version
-  instance_class       = var.mlflow_backend_store_db.instance_class
-  allocated_storage    = var.mlflow_backend_store_db.allocated_storage
-  storage_encrypted = var.mlflow_backend_store_db.storage_encrypted
+  engine                      = var.mlflow_backend_store_db.engine
+  engine_version              = var.mlflow_backend_store_db.engine_version
+  family                      = var.mlflow_backend_store_db.family
+  major_engine_version        = var.mlflow_backend_store_db.major_engine_version
+  instance_class              = var.mlflow_backend_store_db.instance_class
+  allocated_storage           = var.mlflow_backend_store_db.allocated_storage
+  storage_encrypted           = var.mlflow_backend_store_db.storage_encrypted
   manage_master_user_password = var.mlflow_backend_store_db.manage_master_user_password
 
   db_name  = var.mlflow_backend_store_db.db_name

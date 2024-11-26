@@ -49,14 +49,14 @@ variable "mlflow_backend_store_db" {
   description = "The configuration of database for mlflow backend store"
   type        = map(any)
   default = {
-    db_name              = "mlflow_backend_db"
-    engine               = "postgres"
-    engine_version       = "16"
-    family               = "postgres16"
-    major_engine_version = "16"
-    instance_class       = "db.t3.micro"
-    allocated_storage    = 5
-    storage_encrypted = false
+    db_name                     = "mlflow_backend_db"
+    engine                      = "postgres"
+    engine_version              = "16"
+    family                      = "postgres16"
+    major_engine_version        = "16"
+    instance_class              = "db.t3.micro"
+    allocated_storage           = 5
+    storage_encrypted           = false
     manage_master_user_password = false
   }
 }
