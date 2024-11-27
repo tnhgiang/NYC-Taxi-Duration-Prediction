@@ -1,0 +1,32 @@
+- name: Deploy MLflow tracking server
+  hosts: server
+  become: yes
+
+  tasks:
+    - name: Install all ubuntu dependencies
+      apt:
+        pkg:
+          - python3
+          - python3-pip
+          - python3-venv
+        state: latest
+        update_cache: yes
+
+    - name: Create a new virtual environment
+      command:
+        cmd: python3 -m venv env
+        creates: /home/ubuntu/env
+
+    - name: Install all python packages
+      pip:
+        name:
+          - mlflow
+          - boto3
+          - psycopg2-binary
+        virtualenv: /home/ubuntu/env
+
+    - name: Deploy MLflow
+      command:
+        cmd: mlflow server -h 0.0.0.0 -p 5000 \
+             --backend-store-uri postgresql://{{ DB_USER }}:{{ DB_PASSWORD }}@{{ DB_ENDPOINT }}:{{ DB_PORT }}/{{ DB_NAME }}\
+             --default-artifact-root s3://{{ S3_BUCKET_NAME }}
