@@ -126,6 +126,7 @@ module "mlflow_backend_store" {
   allocated_storage           = var.mlflow_backend_store_db.allocated_storage
   storage_encrypted           = var.mlflow_backend_store_db.storage_encrypted
   manage_master_user_password = var.mlflow_backend_store_db.manage_master_user_password
+  skip_final_snapshot         = var.mlflow_backend_store_db.skip_final_snapshot
 
   db_name  = var.mlflow_backend_store_db.db_name
   username = var.mlflow_backend_store_db_username

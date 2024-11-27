@@ -58,6 +58,7 @@ variable "mlflow_backend_store_db" {
     allocated_storage           = 5
     storage_encrypted           = false
     manage_master_user_password = false
+    skip_final_snapshot         = true
   }
 }
 
